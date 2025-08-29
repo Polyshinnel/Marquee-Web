@@ -1118,10 +1118,77 @@ body{
 .showroom-column__item-block__slider{
     width: 100%;
     height: 239px;
+    position: relative;
+    overflow: hidden;
     
     img{
         width: 100%;
         height: 100%;
         object-fit: cover;
+    }
+}
+
+.marat-block{
+    margin: auto;
+    width: 1176px;
+    margin-top: 150px;
+
+    .marat-photos{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    .marat-photo{
+        width: calc((100% / 3) - 10px);
+        overflow: hidden;
+        border-radius: 10px;
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+.marat-text{
+    margin-top: 40px;
+    display: flex;
+
+    .marat-text-col{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        row-gap: 30px;
+
+        h2{
+            font-family: $apocFont;
+            color: $primaryFontColor;
+            font-size: 36px;
+        }
+
+        span{
+            font-family: $geistMonoFont;
+            color: $secondaryFontColor;
+            text-transform: uppercase;
+            font-size: 18px;
+        }
+        
+        p{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: $primaryFontColor;
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        .marat-text-col-item{
+            height: 110px;
+        }
+    }
+
+    .marat-text-col-left{
+        padding-right: 40px;
+        text-align: right;
     }
 }

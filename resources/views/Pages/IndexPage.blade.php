@@ -58,7 +58,6 @@
                 </div>
                 <div class="showroom-column__item-block__img">
                     <div class="showroom-column__item-block__slider">
-                        <img src="assets/img/manufacturers/3/1.png" alt="">
                     </div>
                 </div>
             </div>
@@ -70,7 +69,6 @@
             <div class="showroom-column__item-block">
                 <div class="showroom-column__item-block__img">
                     <div class="showroom-column__item-block__slider">
-                        <img src="assets/img/manufacturers/1/1.png" alt="">
                     </div>
                 </div>
 
@@ -101,7 +99,6 @@
                 </div>
                 <div class="showroom-column__item-block__img">
                     <div class="showroom-column__item-block__slider">
-                        <img src="assets/img/manufacturers/4/1.png" alt="">
                     </div>
                 </div>
             </div>
@@ -113,7 +110,6 @@
             <div class="showroom-column__item-block">
                 <div class="showroom-column__item-block__img">
                     <div class="showroom-column__item-block__slider">
-                        <img src="assets/img/manufacturers/2/1.png" alt="">
                     </div>
                 </div>
 
@@ -144,9 +140,49 @@
                 </div>
                 <div class="showroom-column__item-block__img">
                     <div class="showroom-column__item-block__slider">
-                        <img src="assets/img/manufacturers/5/1.png" alt="">
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="marat-block">
+    <div class="marat-photos">
+        <div class="marat-photo marat-photo-m">
+            <img src="assets/img/marat/1.png" alt="">
+        </div>
+
+        <div class="marat-photo marat-photo-l">
+            <img src="assets/img/marat/2.png" alt="">
+        </div>
+
+        <div class="marat-photo marat-photo-s">
+            <img src="assets/img/marat/3.png" alt="">
+        </div>
+    </div>
+
+    <div class="marat-text">
+        <div class="marat-text-col marat-text-col-left">
+            <div class="marat-text-col-item">
+                <h2>My name is<br>Marat Baybekov</h2>
+            </div>
+
+            <div class="marat-text-col-item">
+                <span>14 years</span>
+                <p>I supply designers' and architects' projects with Italian furniture.</p>
+            </div>
+        </div>
+
+        <div class="marat-text-col">
+            <div class="marat-text-col-item">
+                <span>at 20% less than public price</span>
+                <p>I bring European brands to Dubai thanks to connections and understanding of the distribution network.</p>
+            </div>
+
+            <div class="marat-text-col-item">
+                <span>Showroom in AL QUOZ</span>
+                <p>I opened it to present several European brands with a good price-quality ratio in Dubai that were not available here.</p>
             </div>
         </div>
     </div>
