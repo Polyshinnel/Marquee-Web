@@ -187,4 +187,112 @@
         </div>
     </div>
 </div>
+
+<div class="main-page-slider">
+    <div class="main-slider-container">
+        <div class="main-slider-track">
+            <div class="main-slider-slide" data-index="0">
+                <img src="assets/img/main-slider/1.webp" alt="">
+            </div>
+            <div class="main-slider-slide" data-index="1">
+                <img src="assets/img/main-slider/2.webp" alt="">
+            </div>
+            <div class="main-slider-slide" data-index="2">
+                <img src="assets/img/main-slider/3.webp" alt="">
+            </div>
+            <div class="main-slider-slide" data-index="3">
+                <img src="assets/img/main-slider/4.webp" alt="">
+            </div>
+            <div class="main-slider-slide" data-index="4">
+                <img src="assets/img/main-slider/5.webp" alt="">
+            </div>
+            <div class="main-slider-slide" data-index="5">
+                <img src="assets/img/main-slider/6.webp" alt="">
+            </div>
+        </div>
+
+        <button class="main-slider-arrow main-slider-prev">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </button>
+
+        <button class="main-slider-arrow main-slider-next">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </button>
+    </div>
+</div>
+
+<div class="assemblers-block">
+    <div class="assemblers-block__item">
+        <div class="assemblers-block__item-text">
+            <span>In Dubai, I have assemblers</span>
+            <p>who have been professionally<br>installing Italian furniture<br>for over 10 years</p>
+        </div>
+
+    </div>
+
+    <div class="assemblers-block__item">
+        <div class="assemblers-block__item-img">
+            <img src="assets/img/assemblers/1.png" alt="">
+        </div>
+
+    </div>
+
+    <div class="assemblers-block__item">
+        <div class="assemblers-block__item-img">
+            <img src="assets/img/assemblers/2.png" alt="">
+        </div>
+    </div>
+</div>
+
+<!-- Галерея -->
+<div class="main-gallery-overlay">
+    <div class="main-gallery-container">
+        <button class="main-gallery-close">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </button>
+
+        <div class="main-gallery-track">
+            <div class="main-gallery-slide" data-index="0">
+                <img src="assets/img/main-slider/1.webp" alt="">
+            </div>
+            <div class="main-gallery-slide" data-index="1">
+                <img src="assets/img/main-slider/2.webp" alt="">
+            </div>
+            <div class="main-gallery-slide" data-index="2">
+                <img src="assets/img/main-slider/3.webp" alt="">
+            </div>
+            <div class="main-gallery-slide" data-index="3">
+                <img src="assets/img/main-slider/4.webp" alt="">
+            </div>
+            <div class="main-gallery-slide" data-index="4">
+                <img src="assets/img/main-slider/5.webp" alt="">
+            </div>
+            <div class="main-gallery-slide" data-index="5">
+                <img src="assets/img/main-slider/6.webp" alt="">
+            </div>
+        </div>
+
+        <button class="main-gallery-arrow main-gallery-prev">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </button>
+
+        <button class="main-gallery-arrow main-gallery-next">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </button>
+
+        <div class="main-gallery-counter">
+            <span class="main-gallery-current">1</span> / <span class="main-gallery-total">6</span>
+        </div>
+    </div>
+</div>
 @endsection
