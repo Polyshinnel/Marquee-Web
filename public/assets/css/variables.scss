@@ -1,0 +1,30 @@
+$bodyColor: #131313;
+$blocksBackground: #1c1c1c;
+
+$primaryFontColor: #e5e5e5;
+$secondaryFontColor: #7c7c7c;
+
+@font-face {
+  font-family: "ApocLC-Regular";
+  src: url("../fonts/ApocLC-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "IngoStem";
+  src: url("../fonts/IngoStem.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GeistMono-Regular";
+  src: url("../fonts/GeistMono-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+$apocFont: "ApocLC-Regular", sans-serif;
+$ingoStemFont: "IngoStem", sans-serif;
+$geistMonoFont: "GeistMono-Regular", monospace;
