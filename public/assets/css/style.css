@@ -1385,7 +1385,7 @@ body {
 
 .assemblers-block__item-text {
   text-align: right;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "GeistMono-Regular", monospace;
   font-size: 18px;
   font-weight: 500;
   line-height: 140%;
@@ -1396,4 +1396,194 @@ body {
 }
 .assemblers-block__item-text p {
   color: #7c7c7c;
+}
+
+.supply-main-block {
+  width: 1176px;
+  margin: auto;
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.supply-main-block-col {
+  width: calc(50% - 10px);
+}
+
+.supply-main-block-col__slider {
+  width: 100%;
+  height: 385px;
+  overflow: hidden;
+  border-radius: 8px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.supply-main-block-col__slider:hover {
+  transform: scale(1.02);
+}
+.supply-main-block-col__slider .supply-slider-image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: opacity 1.2s ease, transform 1.2s ease;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.supply-gallery-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 5000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.supply-gallery-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.supply-gallery-container {
+  width: 90%;
+  height: 90%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.supply-gallery-track {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.supply-gallery-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.95);
+}
+.supply-gallery-slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+.supply-gallery-slide img {
+  max-width: 100%;
+  max-height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  border-radius: 8px;
+  transition: transform 0.8s ease;
+}
+
+.supply-gallery-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  color: white;
+}
+.supply-gallery-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.supply-gallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  color: white;
+}
+.supply-gallery-arrow:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-50%) scale(1.1);
+}
+.supply-gallery-arrow.supply-gallery-prev {
+  left: 20px;
+}
+.supply-gallery-arrow.supply-gallery-next {
+  right: 20px;
+}
+
+.supply-gallery-counter {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-family: "GeistMono-Regular", monospace;
+  font-size: 16px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 8px 16px;
+  border-radius: 20px;
+  z-index: 10;
+}
+
+.supply-main-block-col__text {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  padding-left: 30px;
+}
+.supply-main-block-col__text p {
+  color: #e5e5e5;
+}
+.supply-main-block-col__text ul {
+  list-style: none;
+  margin-top: 10px;
+  color: #7c7c7c;
+}
+.supply-main-block-col__text ul li {
+  margin-top: 6px;
+}
+
+.visit_to_milan {
+  margin: auto;
+  width: 1176px;
+  margin-top: 200px;
+}
+.visit_to_milan p {
+  font-size: 20px;
+  color: #7c7c7c;
+  font-family: "GeistMono-Regular", monospace;
+  text-align: center;
 }/*# sourceMappingURL=style.css.map */

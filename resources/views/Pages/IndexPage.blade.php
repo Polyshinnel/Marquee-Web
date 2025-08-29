@@ -248,6 +248,87 @@
     </div>
 </div>
 
+<div class="supply-main-block">
+    <div class="supply-main-block-col">
+        <div class="supply-main-block-col__slider">
+            <img src="assets/img/small-slider/1.webp" alt="" class="supply-slider-image">
+        </div>
+    </div>
+
+    <div class="supply-main-block-col">
+        <div class="supply-main-block-col__text">
+            <p>In addition to what is presented in the showroom, I also supply:</p>
+
+            <ul>
+                <li>→ Finishing materials (tiles, stone, parquet)</li>
+                <li>→ Art</li>
+                <li>→ Decor</li>
+                <li>→ Sanitary ware</li>
+                <li>→ Decorative technical lighting</li>
+                <li>→ Textiles</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="visit_to_milan">
+    <p>Every year I visit Salone del Mobile Milano,</p>
+    <p>Maison & Objet Paris. Come by, and I'll tell</p>
+    <p>you what interesting things I saw this year.</p>
+</div>
+
+<!-- Галерея для supply слайдера -->
+<div class="supply-gallery-overlay">
+    <div class="supply-gallery-container">
+        <button class="supply-gallery-close">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </button>
+
+        <div class="supply-gallery-track">
+            <div class="supply-gallery-slide" data-index="0">
+                <img src="assets/img/small-slider/1.webp" alt="">
+            </div>
+            <div class="supply-gallery-slide" data-index="1">
+                <img src="assets/img/small-slider/2.webp" alt="">
+            </div>
+            <div class="supply-gallery-slide" data-index="2">
+                <img src="assets/img/small-slider/3.webp" alt="">
+            </div>
+            <div class="supply-gallery-slide" data-index="3">
+                <img src="assets/img/small-slider/4.webp" alt="">
+            </div>
+            <div class="supply-gallery-slide" data-index="4">
+                <img src="assets/img/small-slider/5.webp" alt="">
+            </div>
+            <div class="supply-gallery-slide" data-index="5">
+                <img src="assets/img/small-slider/6.webp" alt="">
+            </div>
+            <div class="supply-gallery-slide" data-index="6">
+                <img src="assets/img/small-slider/7.webp" alt="">
+            </div>
+        </div>
+
+        <button class="supply-gallery-arrow supply-gallery-prev">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </button>
+
+        <button class="supply-gallery-arrow supply-gallery-next">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </button>
+
+        <div class="supply-gallery-counter">
+            <span class="supply-gallery-current">1</span> / <span class="supply-gallery-total">7</span>
+        </div>
+    </div>
+</div>
+
 <!-- Галерея -->
 <div class="main-gallery-overlay">
     <div class="main-gallery-container">

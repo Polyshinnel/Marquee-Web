@@ -204,10 +204,150 @@ class MainSlider {
     }
 }
 
+// Supply слайдер
+class SupplySlider {
+    constructor() {
+        this.currentIndex = 0;
+        this.totalSlides = 7;
+        this.sliderImage = document.querySelector('.supply-slider-image');
+        this.gallerySlides = document.querySelectorAll('.supply-gallery-slide');
+        this.galleryOverlay = document.querySelector('.supply-gallery-overlay');
+        this.galleryCurrent = document.querySelector('.supply-gallery-current');
+        this.galleryTotal = document.querySelector('.supply-gallery-total');
+        this.autoSlideInterval = null;
+        
+        this.init();
+    }
+    
+    init() {
+        this.updateSlider();
+        this.bindEvents();
+        this.galleryTotal.textContent = this.totalSlides;
+        this.startAutoSlide();
+    }
+    
+    bindEvents() {
+        // Клик по слайдеру для открытия галереи
+        document.querySelector('.supply-main-block-col__slider').addEventListener('click', () => {
+            this.openGallery(this.currentIndex);
+        });
+        
+        // Стрелки галереи
+        document.querySelector('.supply-gallery-prev').addEventListener('click', () => this.galleryPrev());
+        document.querySelector('.supply-gallery-next').addEventListener('click', () => this.galleryNext());
+        
+        // Закрытие галереи
+        document.querySelector('.supply-gallery-close').addEventListener('click', () => this.closeGallery());
+        this.galleryOverlay.addEventListener('click', (e) => {
+            if (e.target === this.galleryOverlay) {
+                this.closeGallery();
+            }
+        });
+        
+        // Клавиши
+        document.addEventListener('keydown', (e) => {
+            if (this.galleryOverlay.classList.contains('active')) {
+                if (e.key === 'Escape') {
+                    this.closeGallery();
+                } else if (e.key === 'ArrowLeft') {
+                    this.galleryPrev();
+                } else if (e.key === 'ArrowRight') {
+                    this.galleryNext();
+                }
+            }
+        });
+        
+        // Остановка автопрокрутки при наведении на слайдер
+        const sliderContainer = document.querySelector('.supply-main-block-col__slider');
+        sliderContainer.addEventListener('mouseenter', () => this.stopAutoSlide());
+        sliderContainer.addEventListener('mouseleave', () => this.startAutoSlide());
+    }
+    
+    updateSlider() {
+        // Плавное исчезновение текущего изображения
+        this.sliderImage.style.opacity = '0';
+        this.sliderImage.style.transform = 'scale(1.05)';
+        
+        // После исчезновения меняем изображение и плавно показываем
+        setTimeout(() => {
+            this.sliderImage.src = `assets/img/small-slider/${this.currentIndex + 1}.webp`;
+            this.sliderImage.style.opacity = '1';
+            this.sliderImage.style.transform = 'scale(1)';
+        }, 300);
+    }
+    
+    updateGallery() {
+        this.gallerySlides.forEach((slide, index) => {
+            slide.classList.remove('active');
+            if (index === this.currentIndex) {
+                slide.classList.add('active');
+            }
+        });
+        this.galleryCurrent.textContent = this.currentIndex + 1;
+    }
+    
+    getPrevIndex() {
+        return this.currentIndex === 0 ? this.totalSlides - 1 : this.currentIndex - 1;
+    }
+    
+    getNextIndex() {
+        return this.currentIndex === this.totalSlides - 1 ? 0 : this.currentIndex + 1;
+    }
+    
+    next() {
+        this.currentIndex = this.getNextIndex();
+        this.updateSlider();
+    }
+    
+    galleryPrev() {
+        this.currentIndex = this.getPrevIndex();
+        this.updateSlider();
+        this.updateGallery();
+    }
+    
+    galleryNext() {
+        this.currentIndex = this.getNextIndex();
+        this.updateSlider();
+        this.updateGallery();
+    }
+    
+    openGallery(index) {
+        this.currentIndex = index;
+        this.updateSlider();
+        this.updateGallery();
+        this.galleryOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    closeGallery() {
+        this.galleryOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    startAutoSlide() {
+        this.stopAutoSlide();
+        this.autoSlideInterval = setInterval(() => {
+            this.next();
+        }, 3000);
+    }
+    
+    stopAutoSlide() {
+        if (this.autoSlideInterval) {
+            clearInterval(this.autoSlideInterval);
+            this.autoSlideInterval = null;
+        }
+    }
+}
+
 // Инициализация главного слайдера
 document.addEventListener('DOMContentLoaded', function() {
     // Инициализация главного слайдера
     if (document.querySelector('.main-page-slider')) {
         new MainSlider();
+    }
+    
+    // Инициализация supply слайдера
+    if (document.querySelector('.supply-main-block-col__slider')) {
+        new SupplySlider();
     }
 });
