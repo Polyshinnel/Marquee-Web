@@ -2,6 +2,14 @@
 
 @section('content')
 <div class="main-page-block">
+    <div class="main-page-logo">
+        <img src="assets/img/logo.svg" alt="logo">
+    </div>
+    
+    <div class="main-page-title">
+        <h1>European furniture<br> showroom in Dubai</h1>
+    </div>
+    
     <div class="main-page-block-item main-page-block-left">
         <div class="main-page-left-content">
             <div class="main-page-phone-block">
@@ -27,4 +35,6 @@
         <img src="assets/img/main-page-cover.webp" alt="">
     </div>
 </div>
+
+
 @endsection

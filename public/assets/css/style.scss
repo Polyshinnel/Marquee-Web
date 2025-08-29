@@ -851,6 +851,43 @@ body{
     height: 100vh;
     display: flex;
     align-items: stretch;
+    position: relative;
+}
+
+.main-page-logo {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    
+    img {
+        width: 160px;
+        height: auto;
+        transition: all 0.3s ease;
+        
+        &:hover {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+    }
+}
+
+.main-page-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    
+    h1 {
+        color: $primaryFontColor;
+        font-family: $apocFont;
+        font-size: 84px;
+        text-align: center;
+        margin: 0;
+        white-space: nowrap;
+    }
 }
 
 .main-page-block-item {
@@ -894,7 +931,9 @@ body{
         border: none;
         
         &:hover {
-            background: rgba(255, 255, 255, 0.05);
+            background: transparent;
+            transform: none;
+            box-shadow: none;
         }
     }
 }
