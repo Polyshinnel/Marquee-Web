@@ -7,6 +7,17 @@
     outline: none !important;
 }
 
+// Отключение выделения ссылок номера телефона на iPhone
+a[href^="tel:"] {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 body{
     background: $bodyColor;
     color: $primaryFontColor;
@@ -1041,3 +1052,76 @@ body{
     }
 }
 
+.showroom-blocks{
+    display: flex;
+    width: 1176px;
+    margin: auto;
+    margin-top: 150px;
+    justify-content: space-between;
+}
+
+.showroom-column{
+    width: calc((100% / 3) - 7px);
+}
+
+.showroom-column__item{
+    margin-top: 10px;
+}
+
+.showroom-column__item_s{
+    height: 572px;
+}
+
+.showroom-column__item_l{
+    height: 644px;
+}
+
+.showroom-column__item-text-wrapper{
+    width: 100%;
+    height: 100%;
+    color: $primaryFontColor;
+    font-family: $apocFont;
+    font-size: 28px;
+    text-align: right;
+    padding-right: 15px;
+}
+
+.showroom-column__item-block{
+    width: 100%;
+    height: 100%;
+    background: $blocksBackground;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.showroom-column__item-block__text{
+    font-family: $geistMonoFont;
+    color: $secondaryFontColor;
+    padding: 30px;
+    font-size: 16px;
+    font-weight: 300;
+    
+    ul{
+        list-style: none;
+
+        li{
+            margin-top: 15px;
+            font-weight: 300;
+            font-size: 18px;
+        }
+    }
+}
+
+.showroom-column__item-block__slider{
+    width: 100%;
+    height: 239px;
+    
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
