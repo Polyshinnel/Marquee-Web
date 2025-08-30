@@ -2,14 +2,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const feedbackFormOverlay = document.getElementById('feedback-form-overlay');
     const feedbackFormClose = document.getElementById('feedback-form-close');
     const sideMenuCallBtn = document.querySelector('.side-menu-call-btn');
+    const mainAddressCallBtn = document.querySelector('.main-address-call-btn');
     const feedbackForm = document.getElementById('feedback-form');
     const phoneInput = document.getElementById('feedback-phone');
     const dateInput = document.getElementById('feedback-date');
     const timeInput = document.getElementById('feedback-time');
 
-    // Открытие формы при клике на кнопку "Request a call"
+    // Открытие формы при клике на кнопку "Request a call" в боковом меню
     if (sideMenuCallBtn) {
         sideMenuCallBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            openFeedbackForm();
+        });
+    }
+
+    // Открытие формы при клике на кнопку "Request a call" в блоке адреса
+    if (mainAddressCallBtn) {
+        mainAddressCallBtn.addEventListener('click', function(e) {
             e.preventDefault();
             openFeedbackForm();
         });
@@ -78,6 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (dateInput) {
         dateInput.addEventListener('click', function(e) {
             e.preventDefault();
+            console.log('Клик по полю даты');
             showDatePicker(dateInput);
         });
 
@@ -219,9 +229,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const calendar = document.createElement('div');
         calendar.id = 'date-picker';
         calendar.style.cssText = `
-            position: absolute;
-            top: 100%;
-            left: 0;
+            position: fixed;
             background: #1c1c1c;
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 8px;
@@ -399,8 +407,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Позиционируем календарь
         const inputRect = input.getBoundingClientRect();
-        calendar.style.top = (inputRect.bottom + 5) + 'px';
-        calendar.style.left = inputRect.left + 'px';
+        const calendarTop = inputRect.bottom + 5;
+        const calendarLeft = inputRect.left;
+        
+        // Проверяем, помещается ли календарь на экране
+        const calendarHeight = 300; // Примерная высота календаря
+        const calendarWidth = 280; // Ширина календаря
+        
+        let finalTop = calendarTop;
+        let finalLeft = calendarLeft;
+        
+        // Если календарь не помещается снизу, показываем сверху
+        if (calendarTop + calendarHeight > window.innerHeight) {
+            finalTop = inputRect.top - calendarHeight - 5;
+        }
+        
+        // Если календарь не помещается справа, сдвигаем влево
+        if (calendarLeft + calendarWidth > window.innerWidth) {
+            finalLeft = window.innerWidth - calendarWidth - 10;
+        }
+        
+        calendar.style.top = finalTop + 'px';
+        calendar.style.left = finalLeft + 'px';
 
         // Закрытие календаря при клике вне его
         document.addEventListener('click', function closeCalendar(e) {

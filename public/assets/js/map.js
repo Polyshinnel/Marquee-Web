@@ -43,17 +43,4 @@ document.addEventListener('DOMContentLoaded', function() {
     if (mapElement) {
         loadYandexMapsAPI();
     }
-
-    // Обработчик для кнопки "Request a call" в блоке адреса
-    const mainAddressCallBtn = document.querySelector('.main-address-call-btn');
-    if (mainAddressCallBtn) {
-        mainAddressCallBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const feedbackFormOverlay = document.getElementById('feedback-form-overlay');
-            if (feedbackFormOverlay) {
-                feedbackFormOverlay.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-        });
-    }
 });

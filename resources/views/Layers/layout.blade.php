@@ -112,7 +112,7 @@
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-content">
-                <div class="footer-phone">
+                <div class="footer-phone footer-phone_desktop">
                     <img src="assets/img/icons/header/phone.svg" alt="phone">
                     <span>+971 50 613 2486</span>
                 </div>
@@ -125,6 +125,11 @@
                     <a href="/" class="footer-link">Home</a>
                     <a href="/mesons" class="footer-link">Menson's Kitchens</a>
                     <a href="/privacy" class="footer-link">Privacy</a>
+                </div>
+
+                <div class="footer-phone footer-phone_mobile">
+                    <img src="assets/img/icons/header/phone.svg" alt="phone">
+                    <span>+971 50 613 2486</span>
                 </div>
             </div>
         </div>

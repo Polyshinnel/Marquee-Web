@@ -1230,6 +1230,10 @@ body {
   transform: translateY(-2px);
 }
 
+.footer-phone_mobile {
+  display: none;
+}
+
 .showroom-blocks {
   display: flex;
   width: 1176px;
@@ -1586,4 +1590,232 @@ body {
   color: #7c7c7c;
   font-family: "GeistMono-Regular", monospace;
   text-align: center;
+}
+
+@media (max-width: 580px) {
+  .header-container {
+    padding: 10px;
+  }
+  .desctop-link {
+    display: none;
+  }
+  .mobile-link {
+    display: block;
+  }
+  .side-menu {
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+    padding: 20px;
+  }
+  .side-menu.active {
+    right: 0;
+  }
+  .side-menu-close {
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.15);
+  }
+  .side-menu-close img {
+    width: 24px;
+    height: 24px;
+  }
+  .side-menu-logo {
+    margin-bottom: 30px;
+    text-align: left;
+  }
+  .side-menu-logo img {
+    width: 100px;
+  }
+  .side-menu-nav {
+    margin-bottom: 25px;
+  }
+  .side-menu-nav .menu-item {
+    padding: 15px 0;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+  .side-menu-nav .menu-item .arrow {
+    width: 18px;
+    height: 18px;
+  }
+  .side-menu-schedule {
+    font-size: 14px;
+    margin-bottom: 25px;
+    text-align: left;
+  }
+  .side-menu-phone {
+    font-size: 16px;
+    margin-bottom: 25px;
+    justify-content: flex-start;
+  }
+  .side-menu-phone img {
+    width: 20px;
+    height: 20px;
+  }
+  .side-menu-call-btn {
+    width: 100%;
+    height: 45px;
+    font-size: 14px;
+    margin-bottom: 25px;
+  }
+  .side-menu-call-btn .arrow {
+    width: 18px;
+    height: 18px;
+  }
+  .side-menu-address {
+    font-size: 14px;
+    margin-bottom: 25px;
+    text-align: left;
+  }
+  .side-menu-address img {
+    width: 20px;
+    height: 20px;
+  }
+  .side-menu-directions-btn {
+    width: 100%;
+    height: 45px;
+    font-size: 14px;
+  }
+  .side-menu-directions-btn .arrow {
+    width: 18px;
+    height: 18px;
+  }
+  .side-menu-overlay {
+    background: rgba(0, 0, 0, 0.7);
+  }
+  .feedback-form-overlay {
+    padding: 10px;
+  }
+  .feedback-form {
+    padding: 25px 20px;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 12px;
+    margin: 10px;
+  }
+  .feedback-form-close {
+    top: 15px;
+    right: 15px;
+    width: 36px;
+    height: 36px;
+  }
+  .feedback-form-close img {
+    width: 18px;
+    height: 18px;
+  }
+  .feedback-form-title {
+    font-size: 20px;
+    margin-bottom: 6px;
+    text-align: left;
+  }
+  .feedback-form-subtitle {
+    font-size: 13px;
+    margin-bottom: 25px;
+    text-align: left;
+  }
+  .feedback-form-group {
+    margin-bottom: 18px;
+  }
+  .feedback-form-label {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+  .feedback-form-input {
+    height: 44px;
+    font-size: 14px;
+    padding: 0 14px;
+  }
+  .feedback-form-phone-flag {
+    width: 22px;
+    height: 14px;
+    left: 14px;
+  }
+  .feedback-form-phone-input {
+    padding-left: 50px;
+  }
+  .feedback-form-datetime-group {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .feedback-form-date-wrapper,
+  .feedback-form-time-wrapper {
+    width: 100%;
+  }
+  .feedback-form-date-input {
+    padding-right: 45px;
+  }
+  .feedback-form-date-icon {
+    right: 14px;
+    width: 18px;
+    height: 18px;
+  }
+  .feedback-form-submit {
+    height: 44px;
+    font-size: 14px;
+    margin-top: 8px;
+  }
+  .main-address-block {
+    padding: 10px;
+  }
+  .main-address-container {
+    flex-direction: column-reverse;
+  }
+  .main-address-info {
+    padding: 15px;
+    margin-bottom: 50px;
+  }
+  .footer::before {
+    display: none;
+  }
+  .footer-container {
+    padding: 15px;
+    padding-bottom: 40px;
+  }
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer-phone_desktop {
+    display: none;
+  }
+  .footer-phone_mobile {
+    display: flex;
+    margin-top: 40px;
+  }
+  .footer-links {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    margin-top: 40px;
+  }
+  .main-address-schedule {
+    font-size: 14px;
+  }
+  .main-address-phone {
+    font-size: 14px;
+  }
+  .main-address-call-btn {
+    font-size: 12px;
+  }
+  .main-address-location {
+    font-size: 14px;
+  }
+  .main-address-directions-btn {
+    font-size: 12px;
+  }
+  .main-address-middle {
+    margin-top: 20px;
+  }
+  .main-address-bottom {
+    gap: 15px;
+    margin-top: 20px;
+  }
+  .main-address-location {
+    font-size: 14px;
+  }
 }/*# sourceMappingURL=style.css.map */

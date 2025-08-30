@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Pages\IndexPageController;
+use App\Http\Controllers\Pages\MansonsKitchenController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', IndexPageController::class)->name('index');
+Route::get('/mesons', MansonsKitchenController::class)->name('mesons');
