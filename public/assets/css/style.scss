@@ -1127,6 +1127,7 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
+    text-align: center;
     
     h1 {
         color: $primaryFontColor;
@@ -1135,6 +1136,32 @@ body{
         text-align: center;
         margin: 0;
         white-space: nowrap;
+    }
+    
+    .mensons-logo {
+        margin-top: 50px;
+        
+        img {
+            width: 200px;
+            height: auto;
+            transition: all 0.3s ease;
+            
+            &:hover {
+                transform: scale(1.05);
+                filter: brightness(1.1);
+            }
+        }
+    }
+    
+    .mensons-info {
+        margin-top: 15px;
+        
+        span {
+            color: $secondaryFontColor;
+            font-family: $geistMonoFont;
+            font-size: 16px;
+            text-align: center;
+        }
     }
 }
 
@@ -1737,6 +1764,405 @@ body{
     }
 }
 
+// Стили для блока kitchens-variants
+.kitchens-variants {
+    width: 1176px;
+    margin: 0 auto;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.kitchens-variants-tabs {
+    width: 480px;
+    height: 50px;
+    background: $blocksBackground;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    margin-bottom: 40px;
+}
+
+.kitchens-variants-tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: $secondaryFontColor;
+    font-family: $geistMonoFont;
+    font-size: 14px;
+    
+    &:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-1px);
+    }
+    
+    &.active {
+        background: $primaryFontColor;
+        color: $bodyColor;
+        
+        &:hover {
+            background: lighten($primaryFontColor, 5%);
+        }
+    }
+}
+
+.kitchens-variants-tab-circle {
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.kitchens-variants-content {
+    width: 100%;
+    position: relative;
+}
+
+.kitchens-variants-panel {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    
+    &.active {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.kitchens-variants-layout {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.kitchens-variants-slider {
+    width: 770px;
+    flex-shrink: 0;
+}
+
+.kitchens-slider-container {
+    width: 100%;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    &:hover {
+        transform: scale(1.02);
+    }
+}
+
+.kitchens-slider-track {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.kitchens-slider-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+    }
+    
+    &:hover img {
+        transform: scale(1.02);
+    }
+    
+    &.active {
+        opacity: 1;
+        z-index: 3;
+    }
+}
+
+.kitchens-slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    color: rgba(255, 255, 255, 0.7);
+    opacity: 0.6;
+    
+    &:hover {
+        background: rgba(255, 255, 255, 0.6);
+        transform: translateY(-50%) scale(1.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        opacity: 1;
+        color: rgba(255, 255, 255, 1);
+    }
+    
+    &.kitchens-slider-prev {
+        left: 20px;
+    }
+    
+    &.kitchens-slider-next {
+        right: 20px;
+    }
+}
+
+.kitchens-variants-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    max-height: 500px;
+    overflow-y: auto;
+    padding: 2px;
+    padding-right: 5px;
+    margin-right: 5px;
+    
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 3px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 3px;
+        
+        &:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+    }
+}
+
+.kitchens-grid-item {
+    aspect-ratio: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    
+    &.active {
+        border-color: $primaryFontColor;
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.3s ease;
+    }
+    
+    &:hover img {
+        transform: scale(1.1);
+    }
+}
+
+// Стили для галереи kitchens
+.kitchens-gallery-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 5000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.kitchens-gallery-container {
+    width: 90%;
+    height: 90%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.kitchens-gallery-track {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.kitchens-gallery-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &.active {
+        opacity: 1;
+    }
+    
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        border-radius: 8px;
+    }
+}
+
+.kitchens-gallery-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    color: white;
+    
+    &:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: scale(1.1);
+    }
+}
+
+.kitchens-gallery-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 64px;
+    height: 64px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    color: white;
+    
+    &:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-50%) scale(1.1);
+    }
+    
+    &.kitchens-gallery-prev {
+        left: 20px;
+    }
+    
+    &.kitchens-gallery-next {
+        right: 20px;
+    }
+}
+
+.kitchens-gallery-counter {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-family: $geistMonoFont;
+    font-size: 16px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 8px 16px;
+    border-radius: 20px;
+    z-index: 10;
+}
+
+.kitchen-mether-cost{
+    width: 1176px;
+    margin: 0 auto;
+    margin-top: 100px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.kitchen-mether-cost__img{
+    width: 770px;
+    border-radius: 15px;
+}
+
+.kitchen-mether-cost-block{
+    .aed-cost{
+        font-size: 36px;
+        font-family: $apocFont;
+        color: $primaryFontColor;
+
+        span{
+            color: $secondaryFontColor;
+        }
+    }
+
+    .euro-cost{
+        font-size: 28px;
+        font-family: $apocFont;
+        color: $secondaryFontColor;
+
+        margin-top: 5px;
+    }
+
+    .measure-info{
+        font-size: 18px;
+        font-family: $geistMonoFont;
+        color: $secondaryFontColor;
+        margin-top: 20px;
+    }
+}
 
 
 
@@ -2056,6 +2482,22 @@ body{
     .main-page-title h1{
         font-size: 35px;
     }
+    
+    .main-page-title .mensons-logo {
+        margin-top: 40px;
+        
+        img {
+            width: 120px;
+        }
+    }
+    
+    .main-page-title .mensons-info {
+        margin-top: 10px;
+        
+        span {
+            font-size: 14px;
+        }
+    }
 
     .showroom-blocks{
         width: 100%;
@@ -2229,4 +2671,140 @@ body{
     .visit_to_milan p{
         font-size: 16px;
     }
+    
+    // Адаптивные стили для kitchens-variants
+    .kitchens-variants {
+        width: 100%;
+        padding: 0 15px;
+        margin-top: 50px;
+    }
+    
+    .kitchens-variants-tabs {
+        width: 100%;
+        max-width: 400px;
+        height: 60px;
+        padding: 0 8px;
+        margin-bottom: 30px;
+    }
+    
+    .kitchens-variants-tab {
+        padding: 6px 8px;
+        font-size: 12px;
+        gap: 6px;
+        
+        &:hover {
+            transform: none;
+        }
+    }
+    
+    .kitchens-variants-tab-circle {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .kitchens-variants-panel {
+        h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        p {
+            font-size: 14px;
+            padding: 0 10px;
+        }
+    }
+    
+    // Адаптивные стили для kitchens-variants layout
+    .kitchens-variants-layout {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .kitchens-variants-slider {
+        width: 100%;
+    }
+    
+    .kitchens-slider-container {
+        height: 300px;
+    }
+    
+    .kitchens-slider-arrow {
+        width: 40px;
+        height: 40px;
+        
+        &.kitchens-slider-prev {
+            left: 10px;
+        }
+        
+        &.kitchens-slider-next {
+            right: 10px;
+        }
+    }
+    
+    .kitchens-variants-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        max-height: 300px;
+        padding-right: 10px;
+        margin-right: 3px;
+    }
+    
+    .kitchens-grid-item {
+        border-width: 1px;
+    }
+    
+    // Адаптивные стили для галереи
+    .kitchens-gallery-container {
+        width: 95%;
+        height: 95%;
+    }
+    
+    .kitchens-gallery-arrow {
+        width: 48px;
+        height: 48px;
+        
+        &.kitchens-gallery-prev {
+            left: 10px;
+        }
+        
+        &.kitchens-gallery-next {
+            right: 10px;
+        }
+    }
+    
+    .kitchens-gallery-close {
+        width: 40px;
+        height: 40px;
+        top: 15px;
+        right: 15px;
+    }
+
+    .kitchen-mether-cost{
+        width: 100%;
+        margin-top: 50px;
+        padding: 15px;
+        flex-direction: column-reverse;
+    }
+
+    .kitchen-mether-cost__img{
+        width: 100%;
+    }
+
+    .kitchen-mether-cost-block{
+        width: 100%;
+    }
+
+    .kitchen-mether-cost-block .aed-cost{
+        font-size: 24px;
+    }
+
+    .kitchen-mether-cost-block .euro-cost{
+        font-size: 18px;
+    }
+
+    .kitchen-mether-cost-block .measure-info{
+        font-size: 14px;
+    }
+    
+    
 }
