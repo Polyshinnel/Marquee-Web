@@ -2164,11 +2164,70 @@ body{
     }
 }
 
+.kitchen-islands{
+    width: 1176px;
+    margin: 0 auto;
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.kitchen-islands-col{
+    width: calc(33.33% - 25px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    h2{
+        text-align: left;
+        width: 100%;
+        color: $primaryFontColor;
+        text-transform: uppercase;
+        font-size: 24px;
+        font-family: $geistMonoFont;
+    }
+}
+
+.kitchen-islands-col-content{
+    img{
+        width: 100%;
+    }
+}
+
+.kitchen-islands-col-content-filler{
+    flex: 1;
+    min-height: 0;
+}
 
 
+.kitchen-islands-col-price{
+    h3{
+        font-size: 38px;
+        font-family: $apocFont;
+        color: $primaryFontColor;
 
+        span{
+            color: $secondaryFontColor;
+            font-size: 18px;
+        }
+    }
 
+    .kitchen-islands-col-price-title{
 
+        font-size: 24px;
+        font-family: $geistMonoFont;
+        color: $secondaryFontColor;
+        margin-top: 4px;
+    }
+
+    .euro-cost{
+        margin-top: 4px;
+        font-size: 24px;
+        font-family: $apocFont;
+        color: $secondaryFontColor;
+    }
+}
 
 
 
@@ -2804,6 +2863,69 @@ body{
 
     .kitchen-mether-cost-block .measure-info{
         font-size: 14px;
+    }
+
+    // Адаптивные стили для kitchen-islands
+    .kitchen-islands {
+        width: 100%;
+        margin-top: 50px;
+        padding: 0 15px;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .kitchen-islands-col {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+
+        h2 {
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    }
+
+    .kitchen-islands-col-content {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+    }
+
+    .kitchen-islands-col-content-filler {
+        display: none;
+    }
+
+    .kitchen-islands-col-price {
+        margin-top: 15px;
+        text-align: center;
+
+        h3 {
+            font-size: 28px;
+            text-align: center;
+
+            span {
+                font-size: 16px;
+            }
+        }
+
+        .kitchen-islands-col-price-title {
+            font-size: 18px;
+            text-align: center;
+            margin-top: 8px;
+        }
+
+        .euro-cost {
+            font-size: 18px;
+            text-align: center;
+            margin-top: 8px;
+        }
     }
     
     
