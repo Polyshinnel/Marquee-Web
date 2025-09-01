@@ -1,0 +1,273 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const calculator = {
+        currentStep: 1,
+        totalSteps: 4,
+        data: {
+            kitchenType: null,
+            area: null,
+            facadeType: null,
+            contact: {
+                phone: '',
+                name: '',
+                method: 'phone'
+            }
+        },
+        
+        init() {
+            this.bindEvents();
+            this.updateNavigation();
+            this.checkMobileDevice();
+        },
+        
+        checkMobileDevice() {
+            const isMobile = window.innerWidth <= 580;
+            if (isMobile) {
+                document.body.classList.add('calculator-mobile');
+            }
+        },
+        
+        bindEvents() {
+            // Обработчики для опций выбора (Step 1 и Step 3)
+            document.querySelectorAll('.calculator-option').forEach(option => {
+                option.addEventListener('click', (e) => {
+                    this.selectOption(e.currentTarget);
+                });
+            });
+            
+            // Обработчики для радиокнопок (Step 2)
+            document.querySelectorAll('.calculator-radio').forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    this.selectRadio(e.target);
+                });
+            });
+            
+            // Обработчики для чекбокса (Step 4)
+            document.querySelectorAll('.calculator-checkbox').forEach(checkbox => {
+                checkbox.addEventListener('change', (e) => {
+                    this.updateSubmitButton();
+                });
+            });
+            
+            // Обработчики для полей формы (Step 4)
+            document.querySelectorAll('.calculator-form-input').forEach(input => {
+                input.addEventListener('input', (e) => {
+                    this.updateFormData(e.target);
+                });
+            });
+            
+            // Навигационные кнопки
+            document.querySelector('.calculator-next').addEventListener('click', () => {
+                this.nextStep();
+            });
+            
+            document.querySelector('.calculator-prev').addEventListener('click', () => {
+                this.prevStep();
+            });
+            
+            // Отправка формы
+            document.getElementById('calculator-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.submitForm();
+            });
+            
+            // Маска для телефона
+            this.initPhoneMask();
+            
+            // Обработчик изменения размера окна
+            window.addEventListener('resize', () => {
+                this.checkMobileDevice();
+            });
+        },
+        
+        selectOption(optionElement) {
+            const step = optionElement.closest('.calculator-step').dataset.step;
+            const value = optionElement.dataset.value;
+            
+            // Убираем выделение со всех опций в текущем шаге
+            optionElement.closest('.calculator-options-grid').querySelectorAll('.calculator-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            
+            // Выделяем выбранную опцию
+            optionElement.classList.add('selected');
+            
+            // Сохраняем данные
+            if (step === '1') {
+                this.data.kitchenType = value;
+            } else if (step === '3') {
+                this.data.facadeType = value;
+            }
+            
+            this.updateNavigation();
+        },
+        
+        selectRadio(radioElement) {
+            const name = radioElement.name;
+            const value = radioElement.value;
+            
+            if (name === 'area') {
+                this.data.area = value;
+            } else if (name === 'contact-method') {
+                this.data.contact.method = value;
+            }
+            
+            this.updateNavigation();
+        },
+        
+        updateFormData(inputElement) {
+            const field = inputElement.id.replace('calculator-', '');
+            
+            if (field === 'phone') {
+                this.data.contact.phone = inputElement.value;
+            } else if (field === 'name') {
+                this.data.contact.name = inputElement.value;
+            }
+            
+            this.updateSubmitButton();
+        },
+        
+        updateNavigation() {
+            const nextBtn = document.querySelector('.calculator-next');
+            const prevBtn = document.querySelector('.calculator-prev');
+            
+            // Проверяем, можно ли перейти к следующему шагу
+            const canProceed = this.canProceedToNext();
+            nextBtn.disabled = !canProceed;
+            
+            // Показываем/скрываем кнопку "Назад"
+            if (this.currentStep > 1) {
+                prevBtn.style.display = 'block';
+            } else {
+                prevBtn.style.display = 'none';
+            }
+            
+            // Меняем текст кнопки "Далее" на последнем шаге
+            if (this.currentStep === this.totalSteps) {
+                nextBtn.style.display = 'none';
+            } else {
+                nextBtn.style.display = 'block';
+            }
+        },
+        
+        canProceedToNext() {
+            switch (this.currentStep) {
+                case 1:
+                    return this.data.kitchenType !== null;
+                case 2:
+                    return this.data.area !== null;
+                case 3:
+                    return this.data.facadeType !== null;
+                case 4:
+                    return this.isFormValid();
+                default:
+                    return false;
+            }
+        },
+        
+        isFormValid() {
+            const phone = document.getElementById('calculator-phone').value;
+            const name = document.getElementById('calculator-name').value;
+            const privacy = document.getElementById('calculator-privacy').checked;
+            
+            return phone.trim() !== '' && name.trim() !== '' && privacy;
+        },
+        
+        updateSubmitButton() {
+            const submitBtn = document.querySelector('.calculator-form-submit');
+            submitBtn.disabled = !this.isFormValid();
+        },
+        
+        nextStep() {
+            if (this.currentStep < this.totalSteps && this.canProceedToNext()) {
+                this.showStep(this.currentStep + 1);
+            }
+        },
+        
+        prevStep() {
+            if (this.currentStep > 1) {
+                this.showStep(this.currentStep - 1);
+            }
+        },
+        
+        showStep(stepNumber) {
+            // Скрываем все шаги
+            document.querySelectorAll('.calculator-step').forEach(step => {
+                step.style.display = 'none';
+            });
+            
+            // Показываем нужный шаг
+            const targetStep = document.querySelector(`[data-step="${stepNumber}"]`);
+            if (targetStep) {
+                targetStep.style.display = 'block';
+                this.currentStep = stepNumber;
+                this.updateNavigation();
+                
+                // Плавная прокрутка к началу шага на мобильных устройствах
+                if (window.innerWidth <= 580) {
+                    targetStep.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'start' 
+                    });
+                }
+            }
+        },
+        
+        initPhoneMask() {
+            const phoneInput = document.getElementById('calculator-phone');
+            
+            phoneInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                
+                if (value.startsWith('971')) {
+                    value = value.substring(3);
+                }
+                
+                if (value.length > 0) {
+                    value = '+971 ' + value;
+                }
+                
+                if (value.length > 5) {
+                    value = value.substring(0, 5) + ' ' + value.substring(5);
+                }
+                
+                if (value.length > 9) {
+                    value = value.substring(0, 9) + ' ' + value.substring(9);
+                }
+                
+                if (value.length > 13) {
+                    value = value.substring(0, 13) + ' ' + value.substring(13);
+                }
+                
+                e.target.value = value;
+            });
+        },
+        
+        submitForm() {
+            if (!this.isFormValid()) {
+                return;
+            }
+            
+            // Здесь можно добавить отправку данных на сервер
+            console.log('Calculator data:', this.data);
+            
+            // Показываем сообщение об успешной отправке
+            this.showSuccessMessage();
+        },
+        
+        showSuccessMessage() {
+            const form = document.getElementById('calculator-form');
+            const successMessage = document.createElement('div');
+            successMessage.className = 'calculator-success';
+            successMessage.innerHTML = `
+                <h3>Thank you!</h3>
+                <p>We will contact you shortly with the cost estimate and catalogue.</p>
+            `;
+            
+            form.innerHTML = '';
+            form.appendChild(successMessage);
+        }
+    };
+    
+    // Инициализируем калькулятор
+    calculator.init();
+});

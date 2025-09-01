@@ -1285,6 +1285,333 @@
     </div>
 </div>
 
+<div class="calculator-block">
+    <div class="calculator-container">
+        <h2 class="calculator-title">Calculate kitchen cost</h2>
+        
+        <!-- Step 1: Kitchen Type -->
+        <div class="calculator-step" data-step="1">
+            <h3 class="calculator-step-title">Step 1:</h3>
+            <h4 class="calculator-step-subtitle">Select kitchen type</h4>
+            
+            <div class="calculator-options-grid">
+                <div class="calculator-option" data-value="corner">
+                    <img src="{{ asset('assets/img/kitchens/calculator/step1/1.webp') }}" alt="Corner kitchen">
+                    <span class="calculator-option-label">Corner</span>
+                </div>
+                <div class="calculator-option" data-value="peninsular">
+                    <img src="{{ asset('assets/img/kitchens/calculator/step1/2.webp') }}" alt="Peninsular kitchen">
+                    <span class="calculator-option-label">Peninsular</span>
+                </div>
+                <div class="calculator-option" data-value="u-shaped">
+                    <img src="{{ asset('assets/img/kitchens/calculator/step1/3.webp') }}" alt="U-shaped kitchen">
+                    <span class="calculator-option-label">U-shaped</span>
+                </div>
+                <div class="calculator-option" data-value="linear">
+                    <img src="{{ asset('assets/img/kitchens/calculator/step1/4.webp') }}" alt="Linear kitchen">
+                    <span class="calculator-option-label">Linear</span>
+                </div>
+                <div class="calculator-option" data-value="island">
+                    <img src="{{ asset('assets/img/kitchens/calculator/step1/5.webp') }}" alt="Island kitchen">
+                    <span class="calculator-option-label">Island</span>
+                </div>
+                <div class="calculator-option" data-value="double-linear">
+                    <img src="{{ asset('assets/img/kitchens/calculator/step1/6.webp') }}" alt="Double linear kitchen">
+                    <span class="calculator-option-label">Double linear</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Step 2: Kitchen Area -->
+        <div class="calculator-step" data-step="2" style="display: none;">
+            <h3 class="calculator-step-title">Step 2:</h3>
+            <h4 class="calculator-step-subtitle">Select the kitchen area</h4>
+            
+            <div class="calculator-radio-group">
+                <label class="calculator-radio-option">
+                    <input type="radio" name="area" value="up-to-20" class="calculator-radio">
+                    <span class="calculator-radio-custom"></span>
+                    <span class="calculator-radio-label">Up to 20 m²</span>
+                </label>
+                <label class="calculator-radio-option">
+                    <input type="radio" name="area" value="30" class="calculator-radio">
+                    <span class="calculator-radio-custom"></span>
+                    <span class="calculator-radio-label">30 m²</span>
+                </label>
+                <label class="calculator-radio-option">
+                    <input type="radio" name="area" value="40" class="calculator-radio">
+                    <span class="calculator-radio-custom"></span>
+                    <span class="calculator-radio-label">40 m²</span>
+                </label>
+                <label class="calculator-radio-option">
+                    <input type="radio" name="area" value="50-or-more" class="calculator-radio">
+                    <span class="calculator-radio-custom"></span>
+                    <span class="calculator-radio-label">50 m² or more</span>
+                </label>
+            </div>
+        </div>
+        
+        <!-- Step 3: Facade Type -->
+        <div class="calculator-step" data-step="3" style="display: none;">
+            <h3 class="calculator-step-title">Step 3:</h3>
+            <h4 class="calculator-step-subtitle">Select the type of facade</h4>
+            
+            <div class="calculator-options-grid">
+                <div class="calculator-option" data-value="laminate">
+                    <img src="{{ asset('assets/img/kitchens/calculator/step3/1.webp') }}" alt="Laminate facade">
+                    <span class="calculator-option-label">Laminate</span>
+                </div>
+                <div class="calculator-option" data-value="lacquer">
+                    <img src="{{ asset('assets/img/kitchens/calculator/step3/2.webp') }}" alt="Lacquer facade">
+                    <span class="calculator-option-label">Lacquer</span>
+                </div>
+                <div class="calculator-option" data-value="veneer">
+                    <img src="{{ asset('assets/img/kitchens/calculator/step3/3.webp') }}" alt="Veneer facade">
+                    <span class="calculator-option-label">Veneer</span>
+                </div>
+                <div class="calculator-option" data-value="glass">
+                    <img src="{{ asset('assets/img/kitchens/calculator/step3/4.webp') }}" alt="Glass facade">
+                    <span class="calculator-option-label">Glass</span>
+                </div>
+                <div class="calculator-option" data-value="tile">
+                    <img src="{{ asset('assets/img/kitchens/calculator/step3/5.webp') }}" alt="Tile facade">
+                    <span class="calculator-option-label">Tile</span>
+                </div>
+                <div class="calculator-option" data-value="metal">
+                    <img src="{{ asset('assets/img/kitchens/calculator/step3/6.webp') }}" alt="Metal facade">
+                    <span class="calculator-option-label">Metal</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Step 4: Contact Form -->
+        <div class="calculator-step" data-step="4" style="display: none;">
+            <h3 class="calculator-step-title">Step 4:</h3>
+            <h4 class="calculator-step-subtitle">Please leave your phone number</h4>
+            
+            <form class="calculator-form" id="calculator-form">
+                <div class="calculator-form-group">
+                    <label for="calculator-phone" class="calculator-form-label">Phone number</label>
+                    <div class="calculator-form-phone-wrapper">
+                        <div class="calculator-form-phone-flag">
+                            <img src="{{ asset('assets/img/icons/header/emirates.svg') }}" alt="UAE flag">
+                        </div>
+                        <input type="tel" id="calculator-phone" class="calculator-form-input calculator-form-phone-input" placeholder="+971 99 999 9999" required>
+                    </div>
+                </div>
+                
+                <div class="calculator-form-group">
+                    <label for="calculator-name" class="calculator-form-label">Name</label>
+                    <input type="text" id="calculator-name" class="calculator-form-input" placeholder="Alex" required>
+                </div>
+                
+                <div class="calculator-form-group">
+                    <label class="calculator-form-label">Contact method</label>
+                    <div class="calculator-radio-group">
+                        <label class="calculator-radio-option">
+                            <input type="radio" name="contact-method" value="phone" class="calculator-radio" checked>
+                            <span class="calculator-radio-custom"></span>
+                            <span class="calculator-radio-label">Phone</span>
+                        </label>
+                        <label class="calculator-radio-option">
+                            <input type="radio" name="contact-method" value="whatsapp" class="calculator-radio">
+                            <span class="calculator-radio-custom"></span>
+                            <span class="calculator-radio-label">WhatsApp</span>
+                        </label>
+                        <label class="calculator-radio-option">
+                            <input type="radio" name="contact-method" value="telegram" class="calculator-radio">
+                            <span class="calculator-radio-custom"></span>
+                            <span class="calculator-radio-label">Telegram</span>
+                        </label>
+                        <label class="calculator-radio-option">
+                            <input type="radio" name="contact-method" value="botim" class="calculator-radio">
+                            <span class="calculator-radio-custom"></span>
+                            <span class="calculator-radio-label">Botim</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="calculator-form-group">
+                    <label class="calculator-checkbox-option">
+                        <input type="checkbox" id="calculator-privacy" class="calculator-checkbox" required>
+                        <span class="calculator-checkbox-custom"></span>
+                        <span class="calculator-checkbox-label">
+                            I agree to the <a href="/policy" class="calculator-privacy-link">privacy policy</a>
+                        </span>
+                    </label>
+                </div>
+                
+                <div class="calculator-form-note">
+                    We will send you the cost estimate and a catalogue with all the finishing options and configurations.
+                </div>
+                
+                <button type="submit" class="calculator-form-submit">Get calculation</button>
+            </form>
+        </div>
+        
+        <!-- Navigation buttons -->
+        <div class="calculator-navigation">
+            <button class="calculator-nav-btn calculator-prev" style="display: none;">Previous</button>
+            <button class="calculator-nav-btn calculator-next">Next</button>
+        </div>
+    </div>
+</div>
+
+<div class="marat-block">
+    <div class="marat-photos">
+        <div class="marat-photo marat-photo-m">
+            <img src="assets/img/marat/1.png" alt="" />
+        </div>
+
+        <div class="marat-photo marat-photo-l">
+            <img src="assets/img/marat/2.png" alt="" />
+        </div>
+
+        <div class="marat-photo marat-photo-s">
+            <img src="assets/img/marat/3.png" alt="" />
+        </div>
+    </div>
+
+    <div class="marat-text">
+        <div class="marat-text-col marat-text-col-left">
+            <div class="marat-text-col-item">
+                <h2>My name is<br />Marat Baybekov</h2>
+            </div>
+
+            <div class="marat-text-col-item">
+                <span>14 years</span>
+                <p>
+                    I supply designers' and architects' projects with Italian
+                    furniture.
+                </p>
+            </div>
+        </div>
+
+        <div class="marat-text-col">
+            <div class="marat-text-col-item">
+                <span>at 20% less than public price</span>
+                <p>
+                    I bring European brands to Dubai thanks to connections and
+                    understanding of the distribution network.
+                </p>
+            </div>
+
+            <div class="marat-text-col-item">
+                <span>Showroom in AL QUOZ</span>
+                <p>
+                    I opened it to present several European brands with a good
+                    price-quality ratio in Dubai that were not available here.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="marat-block__mobile">
+    <div class="marat-block__mobile-item">
+        <img src="assets/img/marat/2.png" alt="" />
+        <h2>My name is<br />Marat Baybekov</h2>
+
+        <div class="marat-block__mobile-item_text">
+            <span>14 years</span>
+            <p>
+                I supply designers' and architects' projects with Italian
+                furniture.
+            </p>
+        </div>
+    </div>
+
+    <div class="marat-block__mobile-item">
+        <img src="assets/img/marat/1.png" alt="" />
+
+        <div class="marat-block__mobile-item_text">
+            <span>at 20% less than public price</span>
+            <p>
+                I bring European brands to Dubai thanks to connections and
+                understanding of the distribution network.
+            </p>
+        </div>
+
+        <div class="marat-block__mobile-item_text">
+            <span>Showroom in AL QUOZ</span>
+            <p>
+                I opened it to present several European brands with a good
+                price-quality ratio in Dubai that were not available here.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="assemblers-block">
+    <div class="assemblers-block__item">
+        <div class="assemblers-block__item-text">
+            <span>In Dubai, I have assemblers</span>
+            <p>
+                who have been professionally<br />installing Italian
+                furniture<br />for over 10 years
+            </p>
+        </div>
+    </div>
+
+    <div class="assemblers-block__item">
+        <div class="assemblers-block__item-img">
+            <img src="assets/img/assemblers/1.png" alt="" />
+        </div>
+    </div>
+
+    <div class="assemblers-block__item assemblers-block__item_desktop">
+        <div class="assemblers-block__item-img">
+            <img src="assets/img/assemblers/2.png" alt="" />
+        </div>
+    </div>
+</div>
+
+<div class="also-featured">
+    <h2 class="also-featured-title">Also featured in the showroom</h2>
+    
+    <div class="also-featured-container">
+        <a href="https://www.olivierimobili.com/en/home-page/" class="also-featured-item" target="_blank" rel="noopener">
+            <div class="also-featured-item-logo">
+                <img src="assets/img/manufacturers/olivery.svg" alt="Oliveri" />
+            </div>
+            <div class="also-featured-item-content">
+                <h3>Oliveri</h3>
+                <p>Living rooms, Bedrooms, Dining areas, Storage systems</p>
+            </div>
+        </a>
+        
+        <a href="https://mariescorner.com/en/" class="also-featured-item" target="_blank" rel="noopener">
+            <div class="also-featured-item-logo">
+                <img src="assets/img/manufacturers/marie_corner.svg" alt="Marie's Corner" />
+            </div>
+            <div class="also-featured-item-content">
+                <h3>Marie's Corner</h3>
+                <p>Sofas, Chairs, Poufs, Tables, Fabrics</p>
+            </div>
+        </a>
+        
+        <a href="https://www.midj.com/" class="also-featured-item" target="_blank" rel="noopener">
+            <div class="also-featured-item-logo">
+                <img src="assets/img/manufacturers/midj.svg" alt="Midj" />
+            </div>
+            <div class="also-featured-item-content">
+                <h3>Midj</h3>
+                <p>Armchairs, Chairs, Tables, Storage, Lighting systems, Accessories</p>
+            </div>
+        </a>
+        
+        <a href="https://www.felis.it/" class="also-featured-item" target="_blank" rel="noopener">
+            <div class="also-featured-item-logo">
+                <img src="assets/img/manufacturers/fellis.svg" alt="Felis" />
+            </div>
+            <div class="also-featured-item-content">
+                <h3>Felis</h3>
+                <p>Sofas, Sofa beds, Beds, Accessories</p>
+            </div>
+        </a>
+    </div>
+</div>
+
 <!-- Галерея для kitchens слайдера -->
 <div class="kitchens-gallery-overlay">
     <div class="kitchens-gallery-container">
