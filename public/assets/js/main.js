@@ -459,7 +459,9 @@ class ShowroomMobileSlider {
     handleTouchStart(e) {
         this.isDragging = true;
         this.startX = e.touches[0].clientX;
+        this.startY = e.touches[0].clientY;
         this.currentX = this.startX;
+        this.currentY = this.startY;
         this.translateX = this.getCurrentTranslate();
         this.stopAutoSlide();
     }
@@ -467,29 +469,40 @@ class ShowroomMobileSlider {
     handleTouchMove(e) {
         if (!this.isDragging) return;
         
-        e.preventDefault();
         this.currentX = e.touches[0].clientX;
-        const diff = this.currentX - this.startX;
-        const newTranslate = this.translateX + diff;
+        this.currentY = e.touches[0].clientY;
         
-        this.track.style.transform = `translateX(${newTranslate}px)`;
+        const diffX = this.currentX - this.startX;
+        const diffY = this.currentY - this.startY;
+        
+        // Проверяем, является ли свайп преимущественно горизонтальным
+        if (Math.abs(diffX) > Math.abs(diffY)) {
+            e.preventDefault(); // Предотвращаем прокрутку только для горизонтальных свайпов
+            const newTranslate = this.translateX + diffX;
+            this.track.style.transform = `translateX(${newTranslate}px)`;
+        }
     }
     
     handleTouchEnd(e) {
         if (!this.isDragging) return;
         
         this.isDragging = false;
-        const diff = this.currentX - this.startX;
-        const threshold = this.container.offsetWidth * 0.3; // 30% от ширины контейнера
+        const diffX = this.currentX - this.startX;
+        const diffY = this.currentY - this.startY;
         
-        if (Math.abs(diff) > threshold) {
-            if (diff > 0) {
-                this.prev();
+        // Проверяем, был ли свайп преимущественно горизонтальным
+        if (Math.abs(diffX) > Math.abs(diffY)) {
+            const threshold = this.container.offsetWidth * 0.3; // 30% от ширины контейнера
+            
+            if (Math.abs(diffX) > threshold) {
+                if (diffX > 0) {
+                    this.prev();
+                } else {
+                    this.next();
+                }
             } else {
-                this.next();
+                this.updateSlider(); // Возвращаемся к текущему слайду
             }
-        } else {
-            this.updateSlider(); // Возвращаемся к текущему слайду
         }
         
         this.startAutoSlide();

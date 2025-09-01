@@ -14,9 +14,19 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         
         init() {
+            // Проверяем, есть ли элементы калькулятора на странице
+            if (!this.isCalculatorPage()) {
+                return;
+            }
+            
             this.bindEvents();
             this.updateNavigation();
             this.checkMobileDevice();
+        },
+        
+        isCalculatorPage() {
+            // Проверяем наличие основного контейнера калькулятора
+            return document.querySelector('.calculator-container') !== null;
         },
         
         checkMobileDevice() {
@@ -28,47 +38,68 @@ document.addEventListener('DOMContentLoaded', function() {
         
         bindEvents() {
             // Обработчики для опций выбора (Step 1 и Step 3)
-            document.querySelectorAll('.calculator-option').forEach(option => {
-                option.addEventListener('click', (e) => {
-                    this.selectOption(e.currentTarget);
+            const calculatorOptions = document.querySelectorAll('.calculator-option');
+            if (calculatorOptions.length > 0) {
+                calculatorOptions.forEach(option => {
+                    option.addEventListener('click', (e) => {
+                        this.selectOption(e.currentTarget);
+                    });
                 });
-            });
+            }
             
             // Обработчики для радиокнопок (Step 2)
-            document.querySelectorAll('.calculator-radio').forEach(radio => {
-                radio.addEventListener('change', (e) => {
-                    this.selectRadio(e.target);
+            const calculatorRadios = document.querySelectorAll('.calculator-radio');
+            if (calculatorRadios.length > 0) {
+                calculatorRadios.forEach(radio => {
+                    radio.addEventListener('change', (e) => {
+                        this.selectRadio(e.target);
+                    });
                 });
-            });
+            }
             
             // Обработчики для чекбокса (Step 4)
-            document.querySelectorAll('.calculator-checkbox').forEach(checkbox => {
-                checkbox.addEventListener('change', (e) => {
-                    this.updateSubmitButton();
+            const calculatorCheckboxes = document.querySelectorAll('.calculator-checkbox');
+            if (calculatorCheckboxes.length > 0) {
+                calculatorCheckboxes.forEach(checkbox => {
+                    checkbox.addEventListener('change', (e) => {
+                        this.updateSubmitButton();
+                    });
                 });
-            });
+            }
             
             // Обработчики для полей формы (Step 4)
-            document.querySelectorAll('.calculator-form-input').forEach(input => {
-                input.addEventListener('input', (e) => {
-                    this.updateFormData(e.target);
+            const calculatorFormInputs = document.querySelectorAll('.calculator-form-input');
+            if (calculatorFormInputs.length > 0) {
+                calculatorFormInputs.forEach(input => {
+                    input.addEventListener('input', (e) => {
+                        this.updateFormData(e.target);
+                    });
                 });
-            });
+            }
             
             // Навигационные кнопки
-            document.querySelector('.calculator-next').addEventListener('click', () => {
-                this.nextStep();
-            });
+            const nextBtn = document.querySelector('.calculator-next');
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    this.nextStep();
+                });
+            }
             
-            document.querySelector('.calculator-prev').addEventListener('click', () => {
-                this.prevStep();
-            });
+            const prevBtn = document.querySelector('.calculator-prev');
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    this.prevStep();
+                });
+            }
             
             // Отправка формы
-            document.getElementById('calculator-form').addEventListener('submit', (e) => {
-                e.preventDefault();
-                this.submitForm();
-            });
+            const calculatorForm = document.getElementById('calculator-form');
+            if (calculatorForm) {
+                calculatorForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.submitForm();
+                });
+            }
             
             // Маска для телефона
             this.initPhoneMask();
@@ -130,6 +161,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const nextBtn = document.querySelector('.calculator-next');
             const prevBtn = document.querySelector('.calculator-prev');
             
+            if (!nextBtn || !prevBtn) return;
+            
             // Проверяем, можно ли перейти к следующему шагу
             const canProceed = this.canProceedToNext();
             nextBtn.disabled = !canProceed;
@@ -165,16 +198,20 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         
         isFormValid() {
-            const phone = document.getElementById('calculator-phone').value;
-            const name = document.getElementById('calculator-name').value;
-            const privacy = document.getElementById('calculator-privacy').checked;
+            const phone = document.getElementById('calculator-phone');
+            const name = document.getElementById('calculator-name');
+            const privacy = document.getElementById('calculator-privacy');
             
-            return phone.trim() !== '' && name.trim() !== '' && privacy;
+            if (!phone || !name || !privacy) return false;
+            
+            return phone.value.trim() !== '' && name.value.trim() !== '' && privacy.checked;
         },
         
         updateSubmitButton() {
             const submitBtn = document.querySelector('.calculator-form-submit');
-            submitBtn.disabled = !this.isFormValid();
+            if (submitBtn) {
+                submitBtn.disabled = !this.isFormValid();
+            }
         },
         
         nextStep() {
@@ -214,6 +251,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         initPhoneMask() {
             const phoneInput = document.getElementById('calculator-phone');
+            
+            if (!phoneInput) return;
             
             phoneInput.addEventListener('input', function(e) {
                 let value = e.target.value.replace(/\D/g, '');
@@ -256,6 +295,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         showSuccessMessage() {
             const form = document.getElementById('calculator-form');
+            if (!form) return;
+            
             const successMessage = document.createElement('div');
             successMessage.className = 'calculator-success';
             successMessage.innerHTML = `

@@ -1342,12 +1342,14 @@ body{
     position: relative;
     width: 100%;
     overflow: hidden;
+    touch-action: pan-y; // Разрешаем вертикальную прокрутку
 }
 
 .showroom-mobile-slider-track {
     display: flex;
     transition: transform 0.5s ease;
     width: 100%;
+    touch-action: pan-y; // Разрешаем вертикальную прокрутку
 }
 
 .showroom-mobile-slider-track .showroom-column__item {
@@ -3544,6 +3546,7 @@ body{
     // Дополнительные стили для мобильного слайдера
     .showroom-mobile-slider-container {
         cursor: grab;
+        touch-action: pan-y; // Разрешаем вертикальную прокрутку
         
         &:active {
             cursor: grabbing;
