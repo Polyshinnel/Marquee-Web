@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="assets/img/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/img/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="assets/css/style.css?ver=123">
+    <link rel="stylesheet" href="assets/css/style.css?ver=345">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'European Furniture Showroom in Dubai Design District | Luxury Collections')</title>
     <meta name="description" content="@yield('description', 'Bespoke custom-made solutions, Italian & Belgian interior designs + fast delivery & professional installation: Sofas, Kitchens, Bedrooms, dining tables.')">
@@ -247,13 +247,13 @@
         </div>
     </div>
 
-    <script src="assets/js/cookie.js"></script>
-    <script src="assets/js/layout.js"></script>
-    <script src="assets/js/feedback-form.js"></script>
-    <script src="assets/js/map.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/kitchen.js"></script>
-    <script src="assets/js/calculator.js"></script>
+    <script src="assets/js/cookie.js?ver=123"></script>
+    <script src="assets/js/layout.js?ver=123"></script>
+    <script src="assets/js/feedback-form.js?ver=123"></script>
+    <script src="assets/js/map.js?ver=123"></script>
+    <script src="assets/js/main.js?ver=123"></script>
+    <script src="assets/js/kitchen.js?ver=123"></script>
+    <script src="assets/js/calculator.js?ver=123"></script>
     @stack('scripts')
 </body>
 </html>
