@@ -251,5 +251,6 @@
     <script src="assets/js/map.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/kitchen.js"></script>
+    @stack('scripts')
 </body>
 </html>

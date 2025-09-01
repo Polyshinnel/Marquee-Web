@@ -1147,6 +1147,109 @@
     </div>
 </div>
 
+<div class="handles-selection">
+    <div class="handles-selection-container">
+        <div class="handles-selection-left">
+            <div class="handles-category">
+                <h3 class="handles-category-title">Invisible handles</h3>
+                <div class="handles-buttons-grid">
+                    <button class="handles-btn" data-handle="Memo" data-category="Invisible">
+                        <img src="assets/img/kitchens/kitchen-handles/btns/1.jpg" alt="Memo">
+                        <span>Memo</span>
+                    </button>
+                    <button class="handles-btn" data-handle="Goccia" data-category="Invisible">
+                        <img src="assets/img/kitchens/kitchen-handles/btns/2.jpg" alt="Goccia">
+                        <span>Goccia</span>
+                    </button>
+                    <button class="handles-btn" data-handle="Linea" data-category="Invisible">
+                        <img src="assets/img/kitchens/kitchen-handles/btns/3.jpg" alt="Linea">
+                        <span>Linea</span>
+                    </button>
+                    <button class="handles-btn" data-handle="Monoliti" data-category="Invisible">
+                        <img src="assets/img/kitchens/kitchen-handles/btns/4.jpg" alt="Monoliti">
+                        <span>Monoliti</span>
+                    </button>
+                    <button class="handles-btn" data-handle="Tecna" data-category="Invisible">
+                        <img src="assets/img/kitchens/kitchen-handles/btns/5.jpg" alt="Tecna">
+                        <span>Tecna</span>
+                    </button>
+                    <button class="handles-btn" data-handle="Petra" data-category="Invisible">
+                        <img src="assets/img/kitchens/kitchen-handles/btns/6.jpg" alt="Petra">
+                        <span>Petra</span>
+                    </button>
+                    <button class="handles-btn" data-handle="Presa" data-category="Invisible">
+                        <img src="assets/img/kitchens/kitchen-handles/btns/7.jpg" alt="Presa">
+                        <span>Presa</span>
+                    </button>
+                    <button class="handles-btn" data-handle="Profili" data-category="Invisible">
+                        <img src="assets/img/kitchens/kitchen-handles/btns/8.jpg" alt="Profili">
+                        <span>Profili</span>
+                    </button>
+                    <button class="handles-btn" data-handle="Vela" data-category="Invisible">
+                        <img src="assets/img/kitchens/kitchen-handles/btns/9.jpg" alt="Vela">
+                        <span>Vela</span>
+                    </button>
+                    <button class="handles-btn" data-handle="Materia" data-category="Invisible">
+                        <img src="assets/img/kitchens/kitchen-handles/btns/10.jpg" alt="Materia">
+                        <span>Materia</span>
+                    </button>
+                    <button class="handles-btn" data-handle="Murano" data-category="Invisible">
+                        <img src="assets/img/kitchens/kitchen-handles/btns/11.jpg" alt="Murano">
+                        <span>Murano</span>
+                    </button>
+                    <button class="handles-btn" data-handle="Slim" data-category="Invisible">
+                        <img src="assets/img/kitchens/kitchen-handles/btns/12.jpg" alt="Slim">
+                        <span>Slim</span>
+                    </button>
+                    <button class="handles-btn" data-handle="Trim" data-category="Invisible">
+                        <img src="assets/img/kitchens/kitchen-handles/btns/13.jpg" alt="Trim">
+                        <span>Trim</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="handles-category">
+                <h3 class="handles-category-title">Visible handles</h3>
+                <div class="handles-buttons-grid">
+                    <button class="handles-btn" data-handle="Crea" data-category="Visible">
+                        <img src="assets/img/kitchens/kitchen-handles/btns/14.jpg" alt="Crea">
+                        <span>Crea</span>
+                    </button>
+                    <button class="handles-btn" data-handle="Amica" data-category="Visible">
+                        <img src="assets/img/kitchens/kitchen-handles/btns/15.jpg" alt="Amica">
+                        <span>Amica</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="handles-selection-right">
+            <div class="handles-slider-container">
+                <div class="handles-slider-track">
+                    <!-- Слайды будут добавляться динамически -->
+                </div>
+                
+                <button class="handles-slider-arrow handles-slider-prev">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                
+                <button class="handles-slider-arrow handles-slider-next">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                
+                <div class="handles-slider-counter">
+                    <span class="handles-slider-current">1</span> /
+                    <span class="handles-slider-total">1</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Галерея для kitchens слайдера -->
 <div class="kitchens-gallery-overlay">
     <div class="kitchens-gallery-container">
@@ -1214,4 +1317,8 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+<script src="{{ asset('assets/js/handles.js') }}"></script>
+@endpush
 @endsection
