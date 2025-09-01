@@ -493,7 +493,7 @@ body {
   visibility: visible;
 }
 
-.feedback-form {
+.feedback-form-container {
   background: #131313;
   border-radius: 16px;
   padding: 40px;
@@ -503,7 +503,7 @@ body {
   transform: translateY(20px);
   transition: transform 0.3s ease;
 }
-.feedback-form-overlay.active .feedback-form {
+.feedback-form-overlay.active .feedback-form-container {
   transform: translateY(0);
 }
 
@@ -3107,7 +3107,7 @@ body {
   .feedback-form-overlay {
     padding: 10px;
   }
-  .feedback-form {
+  .feedback-form-container {
     padding: 25px 20px;
     width: 100%;
     max-width: 100%;

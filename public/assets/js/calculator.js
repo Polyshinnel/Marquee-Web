@@ -283,14 +283,125 @@ document.addEventListener('DOMContentLoaded', function() {
         
         submitForm() {
             if (!this.isFormValid()) {
+                this.showMessage('Please fill in all form fields', 'error');
                 return;
             }
             
-            // Здесь можно добавить отправку данных на сервер
-            console.log('Calculator data:', this.data);
+            // Показываем индикацию загрузки
+            this.setLoadingState(true);
             
-            // Показываем сообщение об успешной отправке
-            this.showSuccessMessage();
+            // Получаем CSRF токен
+            const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+            
+            if (!csrfToken) {
+                this.showMessage('Security error. Please refresh the page.', 'error');
+                this.setLoadingState(false);
+                return;
+            }
+            
+            // Подготавливаем данные для отправки
+            const data = {
+                name: this.data.contact.name,
+                phone: this.data.contact.phone,
+                contact_method: this.data.contact.method,
+                kitchen_type: this.data.kitchenType,
+                area: this.data.area,
+                facade_type: this.data.facadeType,
+                source: 'calculator'
+            };
+            
+            // Отправляем запрос
+            fetch('/send-calculator-message', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrfToken
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    this.showMessage(result.message, 'success');
+                    // Показываем сообщение об успешной отправке
+                    setTimeout(() => {
+                        this.showSuccessMessage();
+                    }, 2000);
+                } else {
+                    this.showMessage(result.message || 'An error occurred while sending', 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                this.showMessage('An error occurred while sending the message', 'error');
+            })
+            .finally(() => {
+                this.setLoadingState(false);
+            });
+        },
+        
+        setLoadingState(isLoading) {
+            const submitBtn = document.querySelector('.calculator-form-submit');
+            if (!submitBtn) return;
+            
+            if (isLoading) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+                submitBtn.style.opacity = '0.7';
+                submitBtn.style.cursor = 'not-allowed';
+            } else {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Get calculation';
+                submitBtn.style.opacity = '1';
+                submitBtn.style.cursor = 'pointer';
+            }
+        },
+        
+        showMessage(message, type) {
+            // Удаляем существующие сообщения
+            const existingMessages = document.querySelectorAll('.calculator-message');
+            existingMessages.forEach(msg => msg.remove());
+
+            // Создаем новое сообщение
+            const messageElement = document.createElement('div');
+            messageElement.className = `calculator-message calculator-message--${type}`;
+            messageElement.textContent = message;
+
+            // Добавляем стили
+            messageElement.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 15px 20px;
+                border-radius: 8px;
+                color: white;
+                font-family: 'Geist Mono', monospace;
+                font-size: 14px;
+                z-index: 10000;
+                max-width: 400px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                ${type === 'success' ? 'background: #28a745;' : 'background: #dc3545;'}
+            `;
+
+            // Добавляем в DOM
+            document.body.appendChild(messageElement);
+
+            // Анимация появления
+            setTimeout(() => {
+                messageElement.style.transform = 'translateX(0)';
+            }, 100);
+
+            // Автоматическое удаление через 5 секунд
+            setTimeout(() => {
+                messageElement.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    if (messageElement.parentNode) {
+                        messageElement.parentNode.removeChild(messageElement);
+                    }
+                }, 300);
+            }, 5000);
         },
         
         showSuccessMessage() {

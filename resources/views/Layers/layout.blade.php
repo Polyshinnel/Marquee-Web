@@ -16,6 +16,7 @@
     <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/img/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="assets/css/style.css?ver=123">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'European Furniture Showroom in Dubai Design District | Luxury Collections')</title>
     <meta name="description" content="@yield('description', 'Bespoke custom-made solutions, Italian & Belgian interior designs + fast delivery & professional installation: Sofas, Kitchens, Bedrooms, dining tables.')">
 </head>
@@ -201,7 +202,7 @@
 
     <!-- Форма обратной связи -->
     <div class="feedback-form-overlay" id="feedback-form-overlay">
-        <div class="feedback-form">
+        <div class="feedback-form-container">
             <button class="feedback-form-close" id="feedback-form-close">
                 <img src="assets/img/icons/header/cross.svg" alt="close">
             </button>
@@ -209,10 +210,11 @@
             <h2 class="feedback-form-title">Leave a phone number</h2>
             <p class="feedback-form-subtitle">I will call you back at the specified time.</p>
             
-            <form id="feedback-form">
+            <form id="feedback-form" class="feedback-form">
+                @csrf
                 <div class="feedback-form-group">
                     <label for="feedback-name" class="feedback-form-label">Name</label>
-                    <input type="text" id="feedback-name" class="feedback-form-input" placeholder="Alex" required>
+                    <input type="text" id="feedback-name" name="name" class="feedback-form-input" placeholder="Alex" required>
                 </div>
                 
                 <div class="feedback-form-group">
@@ -221,7 +223,7 @@
                         <div class="feedback-form-phone-flag">
                             <img src="assets/img/icons/header/emirates.svg" alt="UAE flag">
                         </div>
-                        <input type="tel" id="feedback-phone" class="feedback-form-input feedback-form-phone-input" placeholder="+971 99 999 9999" required>
+                        <input type="tel" id="feedback-phone" name="phone" class="feedback-form-input feedback-form-phone-input" placeholder="+971 99 999 9999" required>
                     </div>
                 </div>
                 
@@ -229,13 +231,13 @@
                     <div class="feedback-form-datetime-group">
                         <div class="feedback-form-date-wrapper">
                             <label for="feedback-date" class="feedback-form-label">Date</label>
-                            <input type="text" id="feedback-date" class="feedback-form-input feedback-form-date-input" placeholder="01-01-2025" required readonly>
+                            <input type="text" id="feedback-date" name="date" class="feedback-form-input feedback-form-date-input" placeholder="01-01-2025" required readonly>
                             <img src="assets/img/icons/header/calendar.svg" alt="calendar" class="feedback-form-date-icon">
                         </div>
                         
                         <div class="feedback-form-time-wrapper">
                             <label for="feedback-time" class="feedback-form-label">Time</label>
-                            <input type="text" id="feedback-time" class="feedback-form-input feedback-form-time-input" placeholder="14:30" required>
+                            <input type="text" id="feedback-time" name="time" class="feedback-form-input feedback-form-time-input" placeholder="14:30" required>
                         </div>
                     </div>
                 </div>

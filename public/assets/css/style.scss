@@ -510,7 +510,7 @@ body{
     }
 }
 
-.feedback-form {
+.feedback-form-container {
     background: $bodyColor;
     border-radius: 16px;
     padding: 40px;
@@ -3317,7 +3317,7 @@ body{
         padding: 10px;
     }
 
-    .feedback-form {
+    .feedback-form-container {
         padding: 25px 20px;
         width: 100%;
         max-width: 100%;
