@@ -1250,6 +1250,41 @@
     </div>
 </div>
 
+<div class="moving-images-block">
+    <div class="moving-images-container">
+        <div class="moving-images-track">
+            <div class="moving-image-item" data-index="0">
+                <img src="{{ asset('assets/img/kitchens/slider/1.png') }}" alt="Lighting system">
+                <div class="moving-image-caption">Lighting system</div>
+            </div>
+            <div class="moving-image-item" data-index="1">
+                <img src="{{ asset('assets/img/kitchens/slider/2.png') }}" alt="Open modules">
+                <div class="moving-image-caption">Open modules</div>
+            </div>
+            <div class="moving-image-item" data-index="2">
+                <img src="{{ asset('assets/img/kitchens/slider/3.png') }}" alt="Kitchen storage organization">
+                <div class="moving-image-caption">Kitchen storage organization</div>
+            </div>
+            <div class="moving-image-item" data-index="3">
+                <img src="{{ asset('assets/img/kitchens/slider/4.png') }}" alt="Pantries">
+                <div class="moving-image-caption">Pantries</div>
+            </div>
+            <div class="moving-image-item" data-index="4">
+                <img src="{{ asset('assets/img/kitchens/slider/5.png') }}" alt="Tables and bar counters">
+                <div class="moving-image-caption">Tables and bar counters</div>
+            </div>
+            <div class="moving-image-item" data-index="5">
+                <img src="{{ asset('assets/img/kitchens/slider/6.png') }}" alt="Hoods">
+                <div class="moving-image-caption">Hoods</div>
+            </div>
+            <div class="moving-image-item" data-index="6">
+                <img src="{{ asset('assets/img/kitchens/slider/7.png') }}" alt="Cabinets, sideboards, display cases">
+                <div class="moving-image-caption">Cabinets, sideboards, display cases</div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Галерея для kitchens слайдера -->
 <div class="kitchens-gallery-overlay">
     <div class="kitchens-gallery-container">
@@ -1318,7 +1353,43 @@
     </div>
 </div>
 
+<!-- Блок с движущимися изображениями -->
+
+
+<!-- Галерея для moving images -->
+<div class="moving-images-gallery-overlay">
+    <div class="moving-images-gallery-container">
+        <button class="moving-images-gallery-close">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+
+        <div class="moving-images-gallery-track">
+            <!-- Контент будет добавляться динамически -->
+        </div>
+
+        <button class="moving-images-gallery-arrow moving-images-gallery-prev">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+
+        <button class="moving-images-gallery-arrow moving-images-gallery-next">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+
+        <div class="moving-images-gallery-counter">
+            <span class="moving-images-gallery-current">1</span> /
+            <span class="moving-images-gallery-total">7</span>
+        </div>
+    </div>
+</div>
+
 @push('scripts')
 <script src="{{ asset('assets/js/handles.js') }}"></script>
+<script src="{{ asset('assets/js/moving-images.js') }}"></script>
 @endpush
 @endsection
