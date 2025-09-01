@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="assets/img/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/img/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css?ver=123">
     <title>@yield('title', 'European Furniture Showroom in Dubai Design District | Luxury Collections')</title>
     <meta name="description" content="@yield('description', 'Bespoke custom-made solutions, Italian & Belgian interior designs + fast delivery & professional installation: Sofas, Kitchens, Bedrooms, dining tables.')">
 </head>
